@@ -1,0 +1,16 @@
+{
+  "name": "solar-systems",
+  "version": "1.0.0",
+  "description": "Randomly generated solar system in Three.js",
+  "private": true,
+  "main": "./src/index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.26.7"
+  },
+  "scripts": {
+    "start": "browser-sync start --server 'src' --files 'src' --port 4000"
+  },
+  "author": "Jeremy Marin",
+  "license": "ISC"
+}
