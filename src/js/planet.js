@@ -21,8 +21,8 @@ export default class Planet {
   reposition() {
     this.mesh.position.set(
       this.distance * Math.cos(this.angle),
+      0,
       this.distance * Math.sin(this.angle),
-      0
     );
   }
 }
