@@ -9,13 +9,14 @@ export default class Planet {
       this.generateDistance();
     }
 
-    this.angle = Math.random() * 6;
+    this.revolutionAngle = Math.random() * 6;
     this.revolutionSpeed = Math.random() / 100;
+    this.revolutionTilt = Math.random() * 200 * (Math.round(Math.random()) * 2 - 1);
 
     const planetGeometry = new THREE.SphereGeometry(this.radius, 20, 20);
     const planetMaterial = new THREE.MeshLambertMaterial({ color: this.color });
     this.mesh = new THREE.Mesh(planetGeometry, planetMaterial);
-    this.mesh.position.set(this.distance, 0, 0)
+    this.mesh.position.set(this.distance, this.revolutionTilt, 0)
   }
 
   generateDistance() {
@@ -45,11 +46,11 @@ export default class Planet {
   }
 
   revolve() {
-    this.angle += this.revolutionSpeed;
+    this.revolutionAngle += this.revolutionSpeed;
     this.mesh.position.set(
-      this.distance * Math.cos(this.angle),
-      0,
-      this.distance * Math.sin(this.angle),
+      this.distance * Math.cos(this.revolutionAngle),
+      this.revolutionTilt * Math.cos(this.revolutionAngle),
+      this.distance * Math.sin(this.revolutionAngle),
     );
   }
 

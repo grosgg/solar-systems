@@ -11,6 +11,8 @@ import GalaxyTexturePY from './textures/stars-1/py.png';
 import GalaxyTextureNZ from './textures/stars-1/nz.png';
 import GalaxyTexturePZ from './textures/stars-1/pz.png';
 
+const PLANETS_COUNT = 10
+
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
@@ -20,7 +22,7 @@ camera.position.set(0, 0, 2000);
 
 let controls = new OrbitControls( camera, renderer.domElement );
 controls.minDistance = 500;
-controls.maxDistance = 5000;
+controls.maxDistance = 8000;
 
 const scene = new THREE.Scene();
 const textureLoader = new THREE.TextureLoader();
@@ -47,7 +49,7 @@ const skyboxTexture = new THREE.CubeTextureLoader().load([
 scene.background = skyboxTexture;
 
 let planets = [];
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < PLANETS_COUNT; i++) {
   const planet = new Planet(planets);
   scene.add(planet.mesh);
   planets.push(planet);
