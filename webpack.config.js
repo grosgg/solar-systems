@@ -25,6 +25,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Solar Systems',
+      template: 'index.html',
     })
   ],
 };
