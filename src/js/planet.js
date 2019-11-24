@@ -1,9 +1,14 @@
 import * as THREE from 'three';
 export default class Planet {
-  constructor() {
+  constructor(planets) {
     this.color = new THREE.Color(Math.random(), Math.random(), Math.random());
-    this.radius = Math.random() * 100;
-    this.distance = 150 + Math.random() * 2000;
+    this.radius = Math.floor(Math.random() * 100);
+
+    this.generateDistance();
+    while (this.isColliding(planets)) {
+      this.generateDistance();
+    }
+
     this.angle = Math.random() * 6;
     this.revolutionSpeed = Math.random() / 100;
 
@@ -13,16 +18,42 @@ export default class Planet {
     this.mesh.position.set(this.distance, 0, 0)
   }
 
-  revolve() {
-    this.angle += this.revolutionSpeed;
-    this.reposition();
+  generateDistance() {
+    this.distance = 300 + Math.floor(Math.random() * 3000);
   }
 
-  reposition() {
+  isColliding(planets) {
+    // console.log('This planet', this.distance - this.radius, this.distance + this.radius);
+    let result = false;
+    planets.forEach(otherPlanet => {
+      // console.log('Other planet', otherPlanet.distance - otherPlanet.radius, otherPlanet.distance + otherPlanet.radius);
+      if ((otherPlanet.distance + otherPlanet.radius) > (this.distance - this.radius) &&
+        (otherPlanet.distance - otherPlanet.radius) < (this.distance + this.radius)) {
+        // Overlaping edges with other planet
+        result = true;
+      } else if ((otherPlanet.distance + otherPlanet.radius) > (this.distance + this.radius) &&
+        (otherPlanet.distance - otherPlanet.radius) < (this.distance - this.radius)) {
+        // Contained in other planet path
+        result = true;
+      } else if ((otherPlanet.distance - otherPlanet.radius) > (this.distance - this.radius) &&
+        (otherPlanet.distance + otherPlanet.radius) < (this.distance + this.radius)) {
+        // Contains other planet
+        result = true;
+      }
+    });
+    return result;
+  }
+
+  revolve() {
+    this.angle += this.revolutionSpeed;
     this.mesh.position.set(
       this.distance * Math.cos(this.angle),
       0,
       this.distance * Math.sin(this.angle),
     );
+  }
+
+  update() {
+    this.revolve();
   }
 }

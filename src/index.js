@@ -25,7 +25,7 @@ controls.maxDistance = 5000;
 const scene = new THREE.Scene();
 const textureLoader = new THREE.TextureLoader();
 
-const sunGeometry = new THREE.SphereGeometry(100, 20, 20);
+const sunGeometry = new THREE.SphereGeometry(150, 20, 20);
 const sunTexture = textureLoader.load(SunTexture);
 const sunMaterial = new THREE.MeshBasicMaterial({ map: sunTexture });
 const sun = new THREE.Mesh(sunGeometry, sunMaterial);
@@ -48,7 +48,7 @@ scene.background = skyboxTexture;
 
 let planets = [];
 for (let i = 0; i < 10; i++) {
-  const planet = new Planet();
+  const planet = new Planet(planets);
   scene.add(planet.mesh);
   planets.push(planet);
 }
