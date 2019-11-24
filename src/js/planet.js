@@ -29,7 +29,11 @@ export default class Planet {
     planets.forEach(otherPlanet => {
       // console.log('Other planet', otherPlanet.distance - otherPlanet.radius, otherPlanet.distance + otherPlanet.radius);
       if ((otherPlanet.distance + otherPlanet.radius) > (this.distance - this.radius) &&
-        (otherPlanet.distance - otherPlanet.radius) < (this.distance + this.radius)) {
+        (otherPlanet.distance - otherPlanet.radius) < (this.distance - this.radius)) {
+        // Overlaping edges with other planet
+        result = true;
+      } else if ((otherPlanet.distance - otherPlanet.radius) < (this.distance + this.radius) &&
+        (otherPlanet.distance + otherPlanet.radius) > (this.distance + this.radius)) {
         // Overlaping edges with other planet
         result = true;
       } else if ((otherPlanet.distance + otherPlanet.radius) > (this.distance + this.radius) &&
