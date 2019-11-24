@@ -3,13 +3,20 @@
   "version": "1.0.0",
   "description": "Randomly generated solar system in Three.js",
   "private": true,
-  "main": "./src/index.js",
-  "dependencies": {},
+  "dependencies": {
+    "three": "^0.110.0"
+  },
   "devDependencies": {
-    "browser-sync": "^2.26.7"
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "file-loader": "^4.3.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
   },
   "scripts": {
-    "start": "browser-sync start --server 'src' --files 'src' --port 4000"
+    "start": "webpack-dev-server --open",
+    "build": "webpack --progress --colors"
   },
   "author": "Jeremy Marin",
   "license": "ISC"

@@ -1,3 +1,4 @@
+import * as THREE from 'three';
 export default class Planet {
   constructor() {
     this.color = new THREE.Color(Math.random(), Math.random(), Math.random());

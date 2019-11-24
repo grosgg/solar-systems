@@ -1,4 +1,9 @@
-import Planet from './planet.js'
+import * as THREE from 'three';
+import { OrbitControls } from './js/lib/OrbitControls.js';
+
+import Planet from './js/planet.js';
+
+import SunTexture from './textures/sun.jpg';
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -6,13 +11,13 @@ document.body.appendChild(renderer.domElement);
 
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 10000);
 camera.position.set(0, -2000, 500);
-new THREE.OrbitControls( camera, renderer.domElement );
+new OrbitControls( camera, renderer.domElement );
 
 const scene = new THREE.Scene();
 const textureLoader = new THREE.TextureLoader();
 
 const sunGeometry = new THREE.SphereGeometry(100, 20, 20);
-const sunTexture = textureLoader.load("textures/sun.jpg");
+const sunTexture = textureLoader.load(SunTexture);
 const sunMaterial = new THREE.MeshBasicMaterial({ map: sunTexture });
 const sun = new THREE.Mesh(sunGeometry, sunMaterial);
 sun.rotation.x = 90;
