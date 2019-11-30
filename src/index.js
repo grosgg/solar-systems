@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from './js/lib/OrbitControls.js';
+import seedrandom from 'seedrandom';
 
 import Planet from './js/planet.js';
 
@@ -12,6 +13,9 @@ import GalaxyTextureNZ from './textures/stars-1/nz.png';
 import GalaxyTexturePZ from './textures/stars-1/pz.png';
 
 const PLANETS_COUNT = 10
+
+const rng = seedrandom('jeremy');
+console.log(rng());
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -27,7 +31,7 @@ controls.maxDistance = 8000;
 const scene = new THREE.Scene();
 const textureLoader = new THREE.TextureLoader();
 
-const sunGeometry = new THREE.SphereGeometry(150, 20, 20);
+const sunGeometry = new THREE.SphereGeometry(150, 30, 30);
 const sunTexture = textureLoader.load(SunTexture);
 const sunMaterial = new THREE.MeshBasicMaterial({ map: sunTexture });
 const sun = new THREE.Mesh(sunGeometry, sunMaterial);
@@ -50,7 +54,7 @@ scene.background = skyboxTexture;
 
 let planets = [];
 for (let i = 0; i < PLANETS_COUNT; i++) {
-  const planet = new Planet(planets);
+  const planet = new Planet(planets, rng);
   scene.add(planet.mesh);
   planets.push(planet);
 }

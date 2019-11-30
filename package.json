@@ -4,6 +4,7 @@
   "description": "Randomly generated solar system in Three.js",
   "private": true,
   "dependencies": {
+    "seedrandom": "^3.0.5",
     "three": "^0.110.0"
   },
   "devDependencies": {
