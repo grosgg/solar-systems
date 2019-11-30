@@ -4,13 +4,13 @@ import { OrbitControls } from './lib/OrbitControls.js';
 
 import Planet from './planet.js';
 
-import SunTexture from '../textures/sun.jpg';
-import GalaxyTextureNX from '../textures/stars-1/nx.png';
-import GalaxyTexturePX from '../textures/stars-1/px.png';
-import GalaxyTextureNY from '../textures/stars-1/ny.png';
-import GalaxyTexturePY from '../textures/stars-1/py.png';
-import GalaxyTextureNZ from '../textures/stars-1/nz.png';
-import GalaxyTexturePZ from '../textures/stars-1/pz.png';
+import SunTexture from './textures/sun.jpg';
+import GalaxyTextureNX from './textures/stars-1/nx.png';
+import GalaxyTexturePX from './textures/stars-1/px.png';
+import GalaxyTextureNY from './textures/stars-1/ny.png';
+import GalaxyTexturePY from './textures/stars-1/py.png';
+import GalaxyTextureNZ from './textures/stars-1/nz.png';
+import GalaxyTexturePZ from './textures/stars-1/pz.png';
 
 const PLANETS_COUNT = 10
 
