@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Menu.css';
 
-const Menu = ({ goToScene }) => {
-  const handleClick = () => {
-    console.log('Click');
+const Menu = ({ seed, setSeed, goToScene }) => {
+  const handleChange = (event) => {
+    setSeed(event.target.value);
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
     goToScene();
   }
 
@@ -13,7 +17,10 @@ const Menu = ({ goToScene }) => {
         <h1>Solar Systems</h1>
       </div>
       <div>
-        <button onClick={handleClick} >Go</button>
+        <form onSubmit={handleSubmit}>
+          Seed: <input type="text" value={seed} onChange={handleChange} />&nbsp;
+          <input type="submit" value="Go" />
+        </form>
       </div>
     </div>
   );

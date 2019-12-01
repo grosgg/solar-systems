@@ -1,6 +1,7 @@
 import React from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from './lib/OrbitControls.js';
+import seedrandom from 'seedrandom';
 
 import Planet from './planet.js';
 
@@ -16,6 +17,8 @@ const PLANETS_COUNT = 10
 
 class Scene extends React.Component {
   componentDidMount() {
+    const rng = seedrandom(this.props.seed);
+
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     this.mount.appendChild(renderer.domElement);
@@ -53,7 +56,7 @@ class Scene extends React.Component {
     
     let planets = [];
     for (let i = 0; i < PLANETS_COUNT; i++) {
-      const planet = new Planet(planets);
+      const planet = new Planet(planets, rng);
       scene.add(planet.mesh);
       planets.push(planet);
     }
