@@ -1,9 +1,10 @@
 import React from 'react';
 import './Menu.css';
 
-export default function Menu() {
+const Menu = ({ goToScene }) => {
   const handleClick = () => {
     console.log('Click');
+    goToScene();
   }
 
   return (
@@ -17,3 +18,5 @@ export default function Menu() {
     </div>
   );
 };
+
+export default Menu;

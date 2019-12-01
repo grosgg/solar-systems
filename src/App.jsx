@@ -1,19 +1,22 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
 import Scene from './scene/Scene.jsx';
 import Menu from './menu/Menu.jsx';
 
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className='container'>
-        {/* <Scene /> */}
-        <Menu />
-      </div>
-    );
+const App = () => {
+  const [mode, setMode] = useState('menu');
 
+  const goToScene = () => {
+    setMode('scene');
   }
+
+  return (
+    <div className='container'>
+      { mode === 'menu' && <Menu goToScene={goToScene} />}
+      { mode === 'scene' && <Scene />}
+    </div>
+  );
 }
 export default App;

@@ -14,7 +14,7 @@ import GalaxyTexturePZ from './textures/stars-1/pz.png';
 
 const PLANETS_COUNT = 10
 
-export default class Scene extends React.Component {
+class Scene extends React.Component {
   componentDidMount() {
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -83,3 +83,5 @@ export default class Scene extends React.Component {
     );
   }
 }
+
+export default Scene;
