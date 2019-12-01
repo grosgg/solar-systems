@@ -3,6 +3,8 @@ import * as THREE from 'three';
 import { OrbitControls } from './lib/OrbitControls.js';
 import seedrandom from 'seedrandom';
 
+import setupFullscreen from './fullscreen.js';
+
 import Planet from './planet.js';
 
 import SunTexture from './textures/sun.jpg';
@@ -17,6 +19,7 @@ const PLANETS_COUNT = 10
 
 class Scene extends React.Component {
   componentDidMount() {
+    setupFullscreen(13);
     const rng = seedrandom(this.props.seed);
 
     const renderer = new THREE.WebGLRenderer();
