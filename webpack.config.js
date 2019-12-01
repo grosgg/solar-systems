@@ -15,10 +15,20 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        loader: "babel-loader",
+        options: { presets: ["@babel/preset-env"] }
+      },
+      {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
           'file-loader',
         ],
+      },
+      {
+        test:/\.css$/,
+        use:['style-loader','css-loader']
       },
     ],
   },
