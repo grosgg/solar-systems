@@ -7,6 +7,7 @@ import './App.css';
 
 const App = () => {
   const [mode, setMode] = useState('menu');
+  const [seed, setSeed] = useState('');
 
   const goToScene = () => {
     setMode('scene');
@@ -14,8 +15,8 @@ const App = () => {
 
   return (
     <div className='container'>
-      { mode === 'menu' && <Menu goToScene={goToScene} />}
-      { mode === 'scene' && <Scene />}
+      { mode === 'menu' && <Menu seed={seed} setSeed={setSeed} goToScene={goToScene} />}
+      { mode === 'scene' && <Scene seed={seed} />}
     </div>
   );
 }

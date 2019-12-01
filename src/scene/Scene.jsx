@@ -17,8 +17,7 @@ const PLANETS_COUNT = 10
 
 class Scene extends React.Component {
   componentDidMount() {
-    const rng = seedrandom('jeremy');
-    console.log(rng());
+    const rng = seedrandom(this.props.seed);
 
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
