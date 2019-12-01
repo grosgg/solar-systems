@@ -3,7 +3,13 @@ Randomly generated solar system in Three.js
 
 This is my first project with Three.js. I have learned the fundamentals of the library: Scene, Renderer, Camera, Geometry, Material, Mesh, Texture... I have also understood how to use OrbitControls and make a Skybox.
 
-See the [live demo](https://jolly-dijkstra-81d911.netlify.com/).
+See the [live demo](https://solar.sabu.fr).
+
+## Local development
+```
+npm install
+npm start
+```
 
 ## Making a Skybox
 | C  | U  | B  | E  |
