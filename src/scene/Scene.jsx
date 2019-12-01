@@ -22,10 +22,17 @@ class Scene extends React.Component {
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     this.mount.appendChild(renderer.domElement);
-    
+
     const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 100000);
     camera.position.set(0, 0, 2000);
-    
+        
+    window.addEventListener('resize', () => {
+      renderer.setSize(window.innerWidth,window.innerHeight);
+      camera.aspect = window.innerWidth / window.innerHeight;
+
+      camera.updateProjectionMatrix();
+    });
+
     let controls = new OrbitControls( camera, renderer.domElement );
     controls.minDistance = 500;
     controls.maxDistance = 8000;
