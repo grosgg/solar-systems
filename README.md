@@ -1,5 +1,7 @@
 # solar-systems
-Randomly generated solar system in Three.js
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d5ace6a1-d943-4c35-b42c-081852188091/deploy-status)](https://app.netlify.com/sites/jolly-dijkstra-81d911/deploys)
+
+Randomly generated solar systems in Three.js
 
 This is my first project with Three.js. I have learned the fundamentals of the library: Scene, Renderer, Camera, Geometry, Material, Mesh, Texture... I have also understood how to use OrbitControls and make a Skybox.
 
